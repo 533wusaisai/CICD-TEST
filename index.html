@@ -7,7 +7,15 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+  <style>
+    .sidebar ul{
+      margin: 0 0 0 30px;
+    }
+    .sidebar ul li ul{
+      margin: 0 0 0 15px;
+    }
+  </style>
 </head>
 <body>
   <div id="app">Plase ...</div>
@@ -16,16 +24,17 @@
       // logo: 'path/to/logo.png', // 网站logo
       // themeColor: '#3F51B5', // 主题颜色
       // routerMode: 'history', // 使用 HTML5 History API
+     
       name: '自我总结', // 网站标题
       repo: 'https://533wusaisai.github.io/wusaisai.github.io/#/', // 项目仓库链接
-      maxLevel: 4, // 目录最大层级
+     
       loadSidebar: true, // 加载侧边栏
       loadNavbar: true,// 加载导航栏
       coverpage: true, // 封面页
-      auto2top: true, // 切换页面后是否自动跳转到页面顶部
-      notFoundPage: '404.md', // 自定义404页面文件路径
-      disqus: 'shortname',
-      subMaxLevel: 2, // 侧边栏标题的最大层级
+      // auto2top: true, // 切换页面后是否自动跳转到页面顶部
+      // notFoundPage: '404.md', // 自定义404页面文件路径
+      // disqus: 'shortname',
+      // subMaxLevel: 2, // 侧边栏标题的最大层级
       search: {
         maxAge: 86400000, // 过期时间，单位毫秒
         paths: 'auto', // 或者使用数组指定索引路径
@@ -33,15 +42,26 @@
         noData: '暂无数据!', // 无结果时显示的文本
         depth: 2, // 搜索标题的最大层级
       },
-      executeScript: true, // 是否执行文档中的脚本
-      scrollActiveHeaderLink: true, // 滚动时激活侧边栏标题链接
-      externalLinkTarget: '_blank', // 设置外部链接打开方式
-      
+      // executeScript: true, // 是否执行文档中的脚本
+      // scrollActiveHeaderLink: true, // 滚动时激活侧边栏标题链接
+      // externalLinkTarget: '_blank', // 设置外部链接打开方式
+     
+      maxLevel: 2, // 目录最大层级
+      sidebarCollapse: {
+        collapseList: ['/'],
+        expandList: ['/quick-start']
+      },
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+      },
+      subMaxLevel: 3,
+      sidebarDisplayLevel: 1,
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>  
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/disqus.min.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+
 </body>
 </html>
