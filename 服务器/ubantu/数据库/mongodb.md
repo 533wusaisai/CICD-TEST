@@ -1,3 +1,45 @@
+### ubantu/ MACOS安装mongodb 
+  > 在Ubuntu系统上安装MongoDB的步骤通常包括添加MongoDB的官方仓库，然后使用包管理器安装。以下是基于MongoDB官方文档的一般步骤，适用于较新的Ubuntu版本（如Ubuntu 20.04 LTS）。请注意，随着时间的推移，安装步骤可能会有所变化，因此建议查看MongoDB官方文档以获取最新的安装指南。
+
+  ```javascript
+    1. 导入MongoDB公钥：
+       MongoDB软件包使用GPG密钥签名，以确保包的一致性和真实性。首先，导入MongoDB公钥：
+       wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+
+    2. 创建MongoDB列表文件：
+       为MongoDB创建一个列表文件，以便apt知道从哪里下载MongoDB的包：
+       echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+      // 这里使用的是MongoDB 5.0版本，如果你需要安装其他版本，请相应地调整上述命令中的版本号。
+
+    3. 更新本地包数据库：
+       更新本地包数据库，以包含MongoDB的包：
+       sudo apt-get update
+       // 这将安装最新的稳定版本的MongoDB及其相关的管理工具。
+
+    4. 启动MongoDB服务：
+       使用systemctl启动MongoDB服务，并设置它在启动时自动启动：
+       sudo systemctl start mongod
+       sudo systemctl enable mongod
+
+    5. 验证安装：
+       检查MongoDB是否成功启动：
+       sudo systemctl status mongod
+    
+    6. 你也可以尝试连接到MongoDB数据库
+       mongo
+
+  ```
+  >如果你遇到任何问题，确保查看MongoDB的官方文档或搜索特定的错误信息。安装过程可能会因Ubuntu的版本或MongoDB的版本而有所不同。此外，如果你使用的是较旧的Ubuntu版本，可能需要调整上述步骤中的命令。
+ - admin 库创建用户
+
+  db.createUsers({
+    user: 'admin',
+    pwd: 'adminpassword',
+    role: [{}]
+  })
+
+  防止数据库被攻击
+
 ### 连接MongoDB
   - .connect()  数据库连接 
   - .createConnection() 创建新连接
