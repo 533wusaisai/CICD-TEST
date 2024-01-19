@@ -15,12 +15,13 @@
     - [无感刷新token](nodejs/koa/无感刷新token.md)
   - [Express](nodejs/express/)
   - [Egg](nodejs/egg/)
-- #服务器配置
-  - [mongodb](服务器/数据库/mongodb.md)
-  - [mysql](服务器/数据库/mysql.md)
-  - [Docker]()
+- #服务器
+  - [数据库](服务器/centOS/数据库.md)
+  - [Docker](服务器/centOS/docker.md)
   - [Jenkins]()
-  - [Nginx]()
-- #Bug
+  - [Nginx](服务器/centOS/ngixn.md)
+  - [Node](服务器/centOS/node.md)
 - #Axios
   - [axios](axios/)
+
+- #Bug
